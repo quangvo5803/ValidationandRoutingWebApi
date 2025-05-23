@@ -9,7 +9,7 @@ namespace Repositories.Repositories
         public EmployeeRepository(ApplicationDbContext db)
             : base(db) { }
 
-        public IEnumerable<Employee> GetAllEmployees(bool trackChanges) =>
+        public IEnumerable<Employee> GetEmployees(Guid companyId, bool trackChanges) =>
             FindAll(trackChanges).OrderBy(e => e.Name).ToList();
 
         public Employee GetEmployee(Guid employeeId, bool trackChanges) =>
